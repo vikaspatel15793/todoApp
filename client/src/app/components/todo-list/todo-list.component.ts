@@ -16,7 +16,9 @@ export class TodoListComponent implements OnInit {
         this.loadAllTodoList();
     }
     loadAllTodoList() {
-        this.todos = this.todoService.getAllTodos();
+        this.todoService.getAllTodos().subscribe(todos =>{
+            this.todos = todos;
+        });
     }
 
     onClickEditTodoDetail(id) {
@@ -29,8 +31,10 @@ export class TodoListComponent implements OnInit {
     }
 
     onClickTodoDelete(id) {
-        this.todoService.deleteTodoDetail(id);
-        this.loadAllTodoList();
+        this.todoService.deleteTodoDetail(id).subscribe(result =>{
+            this.loadAllTodoList();
+        });
+        
     }
 
 }

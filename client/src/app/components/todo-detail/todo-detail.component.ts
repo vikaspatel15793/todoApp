@@ -33,21 +33,35 @@ export class TodoDetailComponent implements OnInit {
   }
 
   getTodoDetailById(id) {
-    this.todoDetail = this.todoService.getTodoById(parseInt(id));
+    this.todoService.getTodoById(parseInt(id)).subscribe(todo => {
+      this.todoDetail = todo;
+    });
     console.log(this.todoDetail);
   }
 
   onTodoSubmitForm(form) {
     console.log(form);
     if (form.valid) {
-      this.todoService.updateTodoById(this.todoDetail);
-      this.router.navigate(['/todo-list']);
-    } else {
 
+      if (this.todoDetail.id && this.todoDetail.id > 0) {
+      this.todoService.updateTodoById(this.todoDetail).subscribe(todo => {
+        this.todoDetail = todo;
+        this.router.navigate(['/todo-list']);
+      });
+    } else {
+      this.todoService.createTodoById(this.todoDetail).subscribe(todo => {
+        this.todoDetail = todo;
+        this.router.navigate(['/todo-list']);
+      });
     }
+
+   
+  } else {
+
+}
   }
-  onClickCancel() {
-    this.router.navigate(['/todo-list']);
-  }
+onClickCancel() {
+  this.router.navigate(['/todo-list']);
+}
 
 }

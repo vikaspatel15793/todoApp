@@ -66,7 +66,7 @@ public class TodoDTO {
 	public static Todo toEntity(TodoDTO dto) {
 
 		Todo entity = new Todo();
-		if (dto.getId() != null) {
+		if (dto.getId() != null && dto.getId().longValue() > 0) {
 			entity = ApplicationContextProvider.getApplicationContext().getBean(TodoRepository.class)
 					.getOne(dto.getId());
 		}
