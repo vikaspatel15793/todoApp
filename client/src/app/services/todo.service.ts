@@ -36,4 +36,8 @@ export class TodoService {
     deleteTodoDetail(id): Observable<any> {
         return this.http.delete(`${this.resourceUrl}/${id}`, { observe: 'response' });
     };
+
+    deleteMultipleTodoDetail(ids): Observable<any> {
+        return this.http.post(this.resourceUrl+'/delete', ids,{ observe: 'response' });
+    };
 }

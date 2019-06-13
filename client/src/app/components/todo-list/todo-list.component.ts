@@ -16,7 +16,7 @@ export class TodoListComponent implements OnInit {
         this.loadAllTodoList();
     }
     loadAllTodoList() {
-        this.todoService.getAllTodos().subscribe(todos =>{
+        this.todoService.getAllTodos().subscribe(todos => {
             this.todos = todos;
         });
     }
@@ -31,10 +31,27 @@ export class TodoListComponent implements OnInit {
     }
 
     onClickTodoDelete(id) {
-        this.todoService.deleteTodoDetail(id).subscribe(result =>{
+        this.todoService.deleteTodoDetail(id).subscribe(result => {
             this.loadAllTodoList();
         });
-        
+
+    }
+
+    deleteMultiple() {
+        var deleteTodos = [];
+        this.todos.forEach(todo => {
+            if (todo.checked) {
+                deleteTodos.push(todo.id);
+            }
+        })
+
+        if (deleteTodos.length > 0) {
+            this.todoService.deleteMultipleTodoDetail(deleteTodos).subscribe(result => {
+                this.loadAllTodoList();
+            });
+        }
+
+
     }
 
 }

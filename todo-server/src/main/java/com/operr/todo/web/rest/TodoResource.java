@@ -110,4 +110,19 @@ public class TodoResource {
 		return ResponseEntity.noContent().build();
 	}
 
+	/**
+	 * {@code POST  /todos} : Create a new todo.
+	 *
+	 * @param todo the todo to create.
+	 * @return the {@link ResponseEntity} with status {@code 201 (Created)} and with
+	 *         body the new todo
+	 * @throws URISyntaxException if the Location URI syntax is incorrect.
+	 */
+	@PostMapping("/todos/delete")
+	public ResponseEntity<Void> deleteTodos(@Valid @RequestBody List<Long> todos) throws URISyntaxException {
+		log.debug("REST request to delete multiple Todos : {}", todos);
+
+		todoService.deleteMultiple(todos);
+		return ResponseEntity.noContent().build();
+	}
 }

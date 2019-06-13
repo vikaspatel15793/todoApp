@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import javax.transaction.Transactional;
+
 import org.springframework.stereotype.Service;
 
 import com.operr.todo.dto.TodoDTO;
@@ -63,6 +65,13 @@ public class TodoService {
 	 */
 	public Optional<TodoDTO> findById(Long id) {
 		return todoRepository.findById(id).map(TodoDTO::toDTO);
+	}
+
+	@Transactional
+	public void deleteMultiple(List<Long> todos) {
+		todos.stream().forEach(id -> {
+			this.deleteById(id);
+		});
 	}
 
 }
