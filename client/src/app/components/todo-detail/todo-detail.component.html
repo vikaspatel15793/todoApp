@@ -8,7 +8,7 @@
                     <div class="col-md-5">
                         <input type="text" class="form-control" #title="ngModel" name="title"
                             [(ngModel)]="todoDetail.title" placeholder="Title" required>
-                        <div [hidden]="title.valid || (title.pristine && !title.submitted)" class="text-danger">
+                        <div [hidden]="title.valid || (title.pristine && !todoForm.submitted)" class="text-danger">
                             Title is required.
                         </div>
                     </div>
