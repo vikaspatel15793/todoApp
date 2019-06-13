@@ -1,14 +1,28 @@
-Todo Application
-This project was generated with Angular CLI version 1.6.7.
+# Todo Client Application
 
-Blog
-Please check more detail on our blog angular-5-todo-application
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.7.
 
-NodeJS dependancy
-Install NodeJS dependancy using npm install
+## NodeJS dependancy
+Install NodeJS dependancy using `npm install`
 
-Development server
-Run ng serve for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
+## Development server
 
-Build
-Run ng build to build the project. The build files will be stored in the dist/ directory.
+Run `nmp start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+## Build
+
+Run ng build to build the project. The build files will be stored in the dist/ directory. 
+
+
+
+# Todo Server Application
+
+## Required installation
+- JDK 8 or Mode
+
+## Run Application
+- First build mvn project using  `mvn clean install`. 
+- Go to target folder and run the jar file using `java -jar todo-server-0.0.1-SNAPSHOT.jar`
+
+
+
