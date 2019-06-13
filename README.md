@@ -18,7 +18,7 @@ Run ng build to build the project. The build files will be stored in the dist/ d
 # Todo Server Application
 
 ## Required installation
-- JDK 8 or Mode
+- JDK 8 or More
 
 ## Run Application
 - First build mvn project using  `mvn clean install`. 
